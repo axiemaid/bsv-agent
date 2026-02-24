@@ -337,7 +337,7 @@ async function main() {
 
   console.log();
   console.log('═══════════════════════════════════════════════');
-  console.log('   🦞 The Claw');
+  console.log('   🦞 BSV Agent');
   console.log('   Works for satoshis. No account. No API key.');
   console.log('═══════════════════════════════════════════════');
   console.log(`   Address: ${wallet.address}`);

@@ -17,7 +17,7 @@ const SATS = parseInt(args.sats || '5000');
 const WALLET_PATH = args.wallet || path.join(__dirname, '../bsv-wallet.json');
 
 if (!TO || !PROMPT) {
-  console.log('Usage: node send-job.cjs --to <claw-address> --prompt <text> [--sats <amount>] [--wallet <path>]');
+  console.log('Usage: node send-job.cjs --to <agent-address> --prompt <text> [--sats <amount>] [--wallet <path>]');
   process.exit(1);
 }
 
@@ -62,7 +62,7 @@ async function main() {
   const pubKey = privKey.toPublicKey();
   const address = privKey.toAddress();
 
-  console.log('📤 Sending Job to The Claw');
+  console.log('📤 Sending Job to BSV Agent');
   console.log(`   To:      ${TO}`);
   console.log(`   Prompt:  ${PROMPT}`);
   console.log(`   Payment: ${SATS} sats`);
@@ -98,7 +98,7 @@ async function main() {
   opReturn.add(Buffer.from(PROMPT, 'utf8'));
   tx.addOutput(new bsv.Transaction.Output({ script: opReturn, satoshis: 0 }));
 
-  // Output 1: Payment to Claw
+  // Output 1: Payment to agent
   tx.addOutput(new bsv.Transaction.Output({
     script: bsv.Script.buildPublicKeyHashOut(bsv.Address.fromString(TO)),
     satoshis: SATS,

@@ -65,7 +65,7 @@ function renderHTML(wallet, jobs, balance) {
   return `<!DOCTYPE html>
 <html>
 <head>
-<title>🦞 The Claw</title>
+<title>🦞 BSV Agent</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="15">
@@ -119,7 +119,7 @@ function renderHTML(wallet, jobs, balance) {
 </style>
 </head>
 <body>
-  <h1>🦞 The Claw</h1>
+  <h1>🦞 BSV Agent</h1>
   <div class="tagline">Works for satoshis. No account. No API key. No permission.</div>
 
   <div class="address">
@@ -163,15 +163,15 @@ function renderHTML(wallet, jobs, balance) {
   </table>
 
   <div class="how-to">
-    <h3>How to use The Claw</h3>
+    <h3>How to use BSV Agent</h3>
     <p>Send a BSV transaction to <code>${wallet ? wallet.address : '...'}</code> with:</p>
     <p style="margin-top:8px">• An <code>OP_RETURN</code> output containing: <code>JOB</code> followed by your prompt text</p>
-    <p>• A payment output to the address above (any amount — more sats = you're supporting The Claw)</p>
-    <p style="margin-top:8px">The Claw will spend your UTXO and broadcast a response transaction with:</p>
+    <p>• A payment output to the address above (any amount — more sats = you're supporting BSV Agent)</p>
+    <p style="margin-top:8px">BSV Agent will spend your UTXO and broadcast a response transaction with:</p>
     <p>• <code>OP_RETURN</code>: <code>RES</code> <code>&lt;your job txid&gt;</code> <code>&lt;result&gt;</code></p>
   </div>
 
-  <div class="footer">The Claw · Trust = Balance · ${new Date().toISOString()}</div>
+  <div class="footer">BSV Agent · Trust = Balance · ${new Date().toISOString()}</div>
 </body>
 </html>`;
 }
@@ -207,5 +207,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`🦞 Claw Viewer running at http://localhost:${PORT}`);
+  console.log(`🦞 BSV Agent Viewer running at http://localhost:${PORT}`);
 });
